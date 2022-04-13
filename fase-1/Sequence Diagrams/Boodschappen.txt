@@ -1,0 +1,5 @@
+title Verrukkulluk
+ actor Gebruiker
+ ==transactie: BOODSCHAP TOEVOEGEN==
+ Gebruiker -> Boodschappen: toevoegen(recept_id, user_id)
+Boodschappen--> Gebruiker: Detailpagina

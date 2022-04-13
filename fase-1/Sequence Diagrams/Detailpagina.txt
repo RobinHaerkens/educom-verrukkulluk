@@ -1,0 +1,5 @@
+title Verrukkulluk
+ actor Gebruiker
+ ==transactie: DETAILPAGINA==
+ Gebruiker -> Detailpagina: opvragen(recept_id)
+ Detailpagina--> Gebruiker: html

@@ -1,0 +1,5 @@
+title Verrukkulluk
+ actor Gebruiker
+ ==transactie: ZOEKEN==
+ Gebruiker -> Detailpagina: keywords(naam, user_id)
+ Detailpagina--> Gebruiker: Detailpagina

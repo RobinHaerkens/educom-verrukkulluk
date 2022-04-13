@@ -1,0 +1,5 @@
+title Verrukkulluk
+ actor Gebruiker
+ ==transactie: FAVORIET TOEVOEGEN==
+ Gebruiker -> Favoriet: toevoegen(recept_id, user_id)
+ Favoriet--> Gebruiker: Detailpagina
