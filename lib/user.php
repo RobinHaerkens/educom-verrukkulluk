@@ -13,7 +13,7 @@ class user {
         $sql = "select * from user where id = $user_id";
         
         $result = mysqli_query($this->connection, $sql);
-        $user = mysql_fetch_array($result, MYSQLI_ASSOC);
+        $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
         return($user);
 
