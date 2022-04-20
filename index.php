@@ -15,13 +15,11 @@ $receptinfo = new receptinfo($db->getConnection());
 
 
 /// VERWERK 
-$data =array( "artikel"     => $art -> selecteerArtikel(8),
-              "user"        => $usr -> selecteerUser(2),
-              "keukentype"  => $keukentype -> selecteerKeukenType(1),
-              "receptinfo"  => $receptinfo -> selecteerReceptinfo(1,2));
+$data =  $receptinfo -> selecteerReceptinfo(3,"R");
 
 
               
 /// RETURN
+echo "<pre>";
 var_dump($data);
 
