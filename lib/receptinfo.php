@@ -22,7 +22,7 @@ class receptinfo {
         
         $result = mysqli_query($this->connection, $sql);
 
-        $recept_info = array();
+        $receptinfo = array();
         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
         {
 
@@ -31,9 +31,9 @@ class receptinfo {
                 $user_data = $this->userOphalen($row['user_id']);
                 
 
-                $recept_info[] = array_merge($row, $user_data);
+                $receptinfo[] = array_merge($row, $user_data);
             }else{
-                $recept_info[] = $row; 
+                $receptinfo[] = $row; 
             }
                 
             
@@ -41,7 +41,7 @@ class receptinfo {
 
         
 
-        return ($recept_info);
+        return ($receptinfo);
 
 
 
