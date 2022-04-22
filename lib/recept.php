@@ -85,15 +85,24 @@ class recept {
     }
 
 
-    private function totaalKosten($ingredient_data){
-        
-        $total = 0;
-        foreach($ingredient_data as $value){
 
-            $total = $value["hoeveelheid"]/$value["hoeveelheid per verpakking"];
+
+    private function totaalKosten($ingredient_data){
+
+        function convert_num ($str) {
+            preg_match_all('/\d+/', $str, $matches);
+            return $matches[0];
         }
-        #$hoeveelheid = $hoeveelheid_ingredienten / $hoeveelheid_artikel;
-        #$kosten = $hoeveelheid * $prijs_artikelen;
+
+        foreach($ingredient_data as $ingredienten){
+            $kosten[] = (ceil($ingredienten["hoeveelheid"] /= $ingredienten["hoeveelheid per verpakking"])*$ingredienten["prijs"]) / 100;         
+        }
+        
+        foreach($ingredient_data as $ingredienten){
+            $aantal_artikelen[] = (ceil($ingredienten["hoeveelheid"] /= $ingredienten["hoeveelheid per verpakking"]));         
+        }
+
+        $total = $kosten;
 
         return($total);
     }
