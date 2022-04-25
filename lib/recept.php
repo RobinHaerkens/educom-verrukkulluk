@@ -89,15 +89,12 @@ class recept {
 
     private function totaalKosten($ingredient_data){
 
-
+        $kosten = 0;
         foreach($ingredient_data as $ingredienten){
             $kosten += (ceil($ingredienten["hoeveelheid"] /= $ingredienten["hoeveelheid per verpakking"])
             *$ingredienten["prijs"]) / 100;         
         }
-        
-        foreach($ingredient_data as $ingredienten){
-            $aantal_artikelen[] = (ceil($ingredienten["hoeveelheid"] /= $ingredienten["hoeveelheid per verpakking"]));         
-        }
+    
 
         $total = $kosten;
 
