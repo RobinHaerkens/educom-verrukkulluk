@@ -26,6 +26,7 @@ class boodschappen {
             $aantal_artikelen[] = (ceil($ingredienten["hoeveelheid"] /= $ingredienten["hoeveelheid per verpakking"]));         
         }
 
+        
         return($aantal_artikelen);
     }
 
@@ -45,7 +46,7 @@ class boodschappen {
             
         }
         $boodschappen = array_merge($ingredient_naam, $boodschappen_lijst);
-        
+
         return($boodschappen);
  
 
