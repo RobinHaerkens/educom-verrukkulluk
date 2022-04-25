@@ -18,7 +18,7 @@ $ingredient = new ingredient($db->getConnection());
 $recept = new recept($db->getConnection());
 
 /// VERWERK 
-$data =  $recept -> selecteerRecept(3);
+$data =  $recept -> selecteerRecept(1);
 
 
               

@@ -64,7 +64,7 @@ class recept {
 
         foreach($ingredient_data as $value){
 
-            $som_calorien += $value["calorien"];
+            $som_calorien += ($value["calorien"]*($value["hoeveelheid"] /= $value["hoeveelheid per verpakking"]));
         }
 
         return($som_calorien);
@@ -89,13 +89,10 @@ class recept {
 
     private function totaalKosten($ingredient_data){
 
-        function convert_num ($str) {
-            preg_match_all('/\d+/', $str, $matches);
-            return $matches[0];
-        }
 
         foreach($ingredient_data as $ingredienten){
-            $kosten[] = (ceil($ingredienten["hoeveelheid"] /= $ingredienten["hoeveelheid per verpakking"])*$ingredienten["prijs"]) / 100;         
+            $kosten += (ceil($ingredienten["hoeveelheid"] /= $ingredienten["hoeveelheid per verpakking"])
+            *$ingredienten["prijs"]) / 100;         
         }
         
         foreach($ingredient_data as $ingredienten){
