@@ -23,7 +23,7 @@ class boodschappen {
     private function totaalArtikelen($ingredient_data){
 
         foreach($ingredient_data as $ingredienten){
-            $aantal_artikelen[] = (ceil($ingredienten["hoeveelheid"] /= $ingredienten["hoeveelheid per verpakking"]));         
+            $aantal_artikelen[] = (ceil($ingredienten["ingredient_data"]["hoeveelheid"] /= $ingredienten["artikel_data"]["hoeveelheid per verpakking"]));         
         }
 
         
@@ -41,11 +41,12 @@ class boodschappen {
 
             $ingredient_data = $this->ingredientOphalen($row['id']);
             $boodschappen_lijst = $this -> totaalArtikelen($ingredient_data);
-            $ingredient_naam = array_column($ingredient_data, "naam") ;
+            $ingredient_naam = array_column($ingredient_data, "artikel_data") ;
 
             
         }
-        $boodschappen = array_merge($ingredient_naam, $boodschappen_lijst);
+        $boodschappen[] = ["ingredient_namen" => $ingredient_naam, 
+                           "hoeveelheid boodschappen" => $boodschappen_lijst];
 
         return($boodschappen);
  

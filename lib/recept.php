@@ -62,12 +62,13 @@ class recept {
 
         $som_calorien = 0;
 
-        foreach($ingredient_data as $value){
+        foreach($ingredient_data as $ingredient){
 
-            $som_calorien += ($value["calorien"]*($value["hoeveelheid"] /= $value["hoeveelheid per verpakking"]));
+            $som_calorien += ($ingredient["artikel_data"]["calorien"]*($ingredient["ingredient_data"]["hoeveelheid"] /= $ingredient["artikel_data"]["hoeveelheid per verpakking"]));
         }
 
-        return($som_calorien);
+            $totaalcalorien = round($som_calorien);
+        return($totaalcalorien);
     }
 
     private function averageRating($rating_data){
@@ -80,7 +81,7 @@ class recept {
             $som_rating += $value["nummeriekveld"];
         }
 
-        $average_rating = $som_rating / count($rating_data);
+        $average_rating = round($som_rating / count($rating_data), 2);
         return($average_rating);
     }
 
@@ -91,12 +92,12 @@ class recept {
 
         $kosten = 0;
         foreach($ingredient_data as $ingredienten){
-            $kosten += (ceil($ingredienten["hoeveelheid"] /= $ingredienten["hoeveelheid per verpakking"])
-            *$ingredienten["prijs"]) / 100;         
+            $kosten += (ceil($ingredienten["ingredient_data"]["hoeveelheid"] /= $ingredienten["artikel_data"]["hoeveelheid per verpakking"])
+            *$ingredienten["artikel_data"]["prijs"]) / 100;         
         }
     
 
-        $total = $kosten;
+        $total = number_format($kosten, 2);
 
         return($total);
     }
@@ -126,7 +127,22 @@ class recept {
             $prijs = $this -> totaalKosten($ingredient_data);
 
 
-            $recept[] = array_merge($row, array($keuken_data, $type_data),$user_data,$ingredient_data, $rating_data, $favorieten_data, $bereiding_data, $opmerkingen_data, array($som_calorien), array($gemRating), array($prijs));
+            $recept[] = [
+                "recept" => $row, 
+                "ingredienten" => $ingredient_data,
+                "keuken" => $keuken_data,
+                "type" => $type_data,
+                "user" => $user_data,
+                "rating" => $rating_data,
+                "favorieten" => $favorieten_data,
+                "bereiding" => $bereiding_data,
+                "opmerkingen" => $opmerkingen_data, 
+                "totaalcalorien" => $som_calorien,
+                "gemRating" => $gemRating,
+                "prijs" => $prijs
+            ];
+
+            //$recept[] = array_merge($row, array($keuken_data, $type_data),$user_data,$ingredient_data, $rating_data, $favorieten_data, $bereiding_data, $opmerkingen_data, array($som_calorien), array($gemRating), array($prijs));
 
         }
 

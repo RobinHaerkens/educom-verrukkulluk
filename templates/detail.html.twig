@@ -1,5 +1,55 @@
 {% extends "main.html.twig" %}
 
+
+
 {% block header %}
-<h1>Hallo Bram</h1>
+ 
+	<div class="carousel-inner">
+		<img class="d-block w-100" alt="Carousel Bootstrap Second" src="{{data.recept.foto}}" height=400px />
+		<div class="carousel-caption" position="left">
+		</div>
+
+	</div> 
+	<div><h1>{{data.recept.titel}}</h1></div>
+	<div>{{data.keuken.omschrijving}}</div>
+	<div>{{data.type.omschrijving}}</div>
+	<div>{{data.totaalcalorien}} Kcal</div>
+	<div>Totaal kosten: {{data.prijs}} euro</div>
+	<div>Rating {{data.gemRating}}</div>
+
+{#Bereiding#}
+<h2 class="text-danger"> Bereiding </h2>
+	{% for record in data.bereiding %}
+	<ul>
+	{{record.nummeriekveld}}<br>
+	{{record.textveld}}<br>
+
+	</ul>
+	{% endfor %}
+
+
+{#ingredienten#}
+<h2 class="text-danger"> Lijst met Ingrediënten </h2>
+	{% for record in data.ingredienten %}
+	<li>
+	{{record.artikel_data.naam}} {{record.ingredient_data.hoeveelheid}}{{record.ingredient_data.eenheid}}
+	</il>
+	{% endfor %}
+{#opmerkingen ophalen en usernaam#}
+
+<h2 class="text-danger"> Opmerkingen </h2>
+	{% for record in data.opmerkingen %}
+	<ul>
+	{{record.user_info.user_name}}<br>
+	{{record.user_info.foto}}<br>
+	{{record.recept_user_info.textveld}}<br>
+	{{record.recept_user_info.datum}}
+	</ul>
+	{% endfor %}
+
+{% endblock %}
+{% block footer %}
+		<h3 class="text-danger">
+			Footer
+		</h3>
 {% endblock %}
