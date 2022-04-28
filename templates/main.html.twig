@@ -17,37 +17,47 @@
 <body>
 <div class="container-fluid">
 
-    <div class="row">
-        <div class="col-md-12">
-        {% block header %}
-            
-        {% endblock %}   
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-3">
-            <h2>Agenda</h2>
-            <i class="fa fa-calendar"></i> FontAwesome <a href="https://fontawesome.com/icons?d=gallery&m=free">Documentation</a><br>
-            <i class="fa fa-file-pdf"></i><a href="https://www.layoutit.com/build">Layout-it</a>
-
-
-        </div>
-        <div class="col-md-9">
-            <h2>Content</h2>
-            {%  block content %}
-            {%  endblock %}
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Footer</h1>
-        </div>
-    </div>
-
-
 </div>
-
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			{% block header %}
+			{% endblock %}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-md-12">
+							<h3>
+							{% block agenda %}
+							{% endblock %}
+							</h3>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							{% block login %}
+							{% endblock %}
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="row">            
+                        {%  block recept_option %}
+                        {%  endblock %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+				        {%  block footer %}
+                        {%  endblock %}
+		</div>
+	</div>
+</div>
 </body>

@@ -31,7 +31,8 @@ class receptinfo {
                 $user_data = $this->userOphalen($row['user_id']);
                 
 
-                $receptinfo[] = array_merge($row, $user_data);
+                $receptinfo[] = ["recept_user_info" => $row, 
+                                "user_info" => $user_data];
             }else{
                 $receptinfo[] = $row; 
             }

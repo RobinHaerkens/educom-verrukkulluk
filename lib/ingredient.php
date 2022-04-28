@@ -26,8 +26,12 @@ class ingredient {
         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
         {   
             $artikel_data = $this->artikelOphalen($row['artikel_id']);
-                
-            $ingredient[] = array_merge($row, $artikel_data);
+            
+
+           $ingredient[] = [
+               "ingredient_data" =>$row,
+               "artikel_data" => $artikel_data
+           ]; 
 
         }
                 
