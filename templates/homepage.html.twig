@@ -3,9 +3,9 @@
 
 {% block header %}
 	<div class="carousel-inner">
-		<img class="d-block w-100" alt="Carousel Bootstrap Second" src="https://keukenhulpjes.be/wp-content/uploads/2020/07/Mooi-gedekte-tafel.jpg" height=400px />
-		<div class="carousel-caption" position="left">
-            <img src="assets/img/logo-v2.png"/>
+		<img class="d-block w-100 receptimage" alt="Carousel Bootstrap Second" src="https://keukenhulpjes.be/wp-content/uploads/2020/07/Mooi-gedekte-tafel.jpg" height=400px />
+		<div class="carousel-caption" >
+            <img class="logo" src="assets/img/logo-v2.png"/>
 		</div>
 	</div> 
 {% endblock %}
@@ -16,18 +16,16 @@
 
     {# Print #}
     <h1 class="text-warning">Receptenboek</h1>
-    <h2>klik er een aan</h2>
-    <h3>en stel gemakkelijk een boodschappenlijstje samen</h3>
 
-    <h4>Dit is de template {{  title }}</h4>
 
 {# Loop #}
 
 <div class="row">
     {% for record in data %}
-        <div class="col-md-6">
+        <div class="col-md-6 block">
                 
             <ul>
+             <img class="receptimagehp" src="{{record.recept.foto}}">
                 <li><h4>
                 <a href="http://localhost/educom-verrukkulluk/index.php?recept_id={{record.recept.id}}&action=detail">{{record.recept.titel}}</a>
                 </h4></li>
@@ -43,7 +41,7 @@
                 {{record.type.omschrijving}}
                 </li>
                 </ul>
-                <img = src="{{record.recept.foto}}" width ="200" height="200" >
+               
                 
             </ul>
             </ul>
@@ -54,7 +52,7 @@
 {% endblock %}
 
 {% block agenda %}
-    		 <h2 class = "text-warning">Agenda</h2>
+    		<h2 class = "text-warning">Agenda</h2>
             <i class="fa fa-calendar"></i> FontAwesome <br>
 			<i class="fa fa-calendar"></i><a href="https://fontawesome.com/icons?d=gallery&m=free">Documentation</a><br>
 			<i class="fa fa-calendar"></i> Event 1 <br>
@@ -70,8 +68,104 @@
 							<textarea name="password" rows="1" cols="30"></textarea>
                             
 {% endblock %}
+
 {% block footer %}
-		<h3 class="text-danger">
-			<h1>Footer</h1>
+		<h3>
+			Contact
 		</h3>
+		<p> Tel: 046-1234567<br>
+		Email: Verrukkulluk@info.nl<br>
+		Adres: Poststraat 2b<br>
+		Sittard<br>
+		Verrukkulluk.nl</p>
+{% endblock %}
+
+{% block main %}
+            <div class="row">
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-md-12 login">
+							<h3>
+                            <h3 class="text-warning"> Login </h3>
+							<p> email</p>
+        					<textarea name="email" rows="1" cols="30"></textarea>
+							<p> password </p>
+							<textarea name="password" rows="1" cols="30"></textarea>
+							</h3>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 agenda">
+                            <h2 class = "text-warning">Agenda</h2>
+                            <i class="fa fa-calendar"></i> FontAwesome <br>
+                            <i class="fa fa-calendar"></i><a class="link" href="https://fontawesome.com/icons?d=gallery&m=free"> Documentation</a><br>
+                            <i class="fa fa-calendar"></i> Event 1 <br>
+                            <i class="fa fa-calendar"></i> Event 2 <br>
+                            <i class="fa fa-file-pdf"></i><a class="link" href="https://www.layoutit.com/build"> Layout-it</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="row">           
+                            <h1 class="text-warning">Receptenboek</h1>
+                        <div class="row">
+                            {% for record in data %}
+                                <div class="col-md-6 block">
+                                        
+                                    <ul>
+                                    <img class="receptimagehp" src="{{record.recept.foto}}">
+                                            <h4>
+                                            <a style="text-decoration: none" href="http://localhost/educom-verrukkulluk/index.php?recept_id={{record.recept.id}}&action=detail"><div class="link">{{record.recept.titel}}</div></a>
+                                            </h4>
+                                        <ul>
+                                            
+                                            {{record.recept.short_desc}}
+                                            
+                                        <ul class="kitchentype">
+                                            <li>
+                                            {{record.keuken.omschrijving}}
+                                            </li>
+                                            <li>
+                                            {{record.type.omschrijving}}
+                                            </li>
+                                        </ul>
+                                        </ul>
+                                        </ul>
+                                </div>
+                            {% endfor %}
+                        </div>
+					</div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <nav>
+                                    <ul class="pagination">
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">Previous</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">1</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">2</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">3</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">4</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">5</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+			</div>
 {% endblock %}

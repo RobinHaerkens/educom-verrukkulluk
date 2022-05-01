@@ -87,27 +87,15 @@ class recept {
 
 
     private function totaalKosten($ingredient_data){
-<<<<<<< HEAD
-       
-=======
-
+        
         $kosten = 0;
->>>>>>> 8d692710c5b446067878a006588d02dc7de1e5b0
         foreach($ingredient_data as $ingredienten){
             $kosten += (ceil($ingredienten["ingredient_data"]["hoeveelheid"] /= $ingredienten["artikel_data"]["hoeveelheid per verpakking"])
             *$ingredienten["artikel_data"]["prijs"]) / 100;         
         }
     
 
-<<<<<<< HEAD
-        $total = $kosten;
-        #function get_numerics ($str) {
-        #    preg_match_all('/\d+/', $str, $matches);
-        #    return $matches[0];
-        #}
-=======
         $total = number_format($kosten, 2);
->>>>>>> 8d692710c5b446067878a006588d02dc7de1e5b0
 
         return($total);
     }
