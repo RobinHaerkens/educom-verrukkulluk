@@ -46,7 +46,7 @@ class boodschappen {
             
         }
         $boodschappen[] = ["ingredient_namen" => $ingredient_naam, 
-                           "hoeveelheid boodschappen" => $boodschappen_lijst];
+                           "hoeveelheid_boodschappen" => $boodschappen_lijst];
 
         return($boodschappen);
  

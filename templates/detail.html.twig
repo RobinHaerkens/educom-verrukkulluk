@@ -8,7 +8,9 @@
 		<img class="d-block w-100 receptimage" alt="Carousel Bootstrap Second" src="{{data.recept.foto}}" height=400px />
 		<div class="carousel-caption" position="left"></div>
 				<div class="carousel-caption" >
+        <a class="link" href="http://localhost/educom-verrukkulluk/index.php">
             <img class="logo" src="assets/img/logo-v2.png"/>
+        </a>
 		</div>
 	</div> 
 {% endblock %}
@@ -67,6 +69,17 @@
 											<div>{{data.totaalcalorien}} Kcal</div>
 											<div>Totaal kosten: {{data.prijs}} euro</div>
 											<div>Rating {{data.gemRating}}</div></h5>
+											<div>
+												<span class="star" data-value="1">*</span>
+												<span class="star" data-value="2">*</span>
+												<span class="star" data-value="3">*</span>
+												<span class="star" data-value="4">*</span>
+												<span class="star" data-value="5">*</span>
+      										</div><br>
+											<button type="button" class="btn btn-md btn-warning">
+											<a class="link" href="http://localhost/educom-verrukkulluk/index.php?recept_id={{data.recept.id}}&action=boodschappen" class="button"><h5>Toevoegen aan Lijst</h5></a>
+											</button>
+											<div> 
 										</div>
 									</div>
 									<div class="row">
@@ -151,11 +164,13 @@
 		<h3>
 			Contact
 		</h3>
-		<p> Tel: 046-1234567<br>
+		<p> 
+		Tel: 046-1234567<br>
 		Email: Verrukkulluk@info.nl<br>
 		Adres: Poststraat 2b<br>
 		Sittard<br>
-		Verrukkulluk.nl</p>
+		Verrukkulluk.nl
+		</p>
     </div>
 
     <div class="col-md-6">

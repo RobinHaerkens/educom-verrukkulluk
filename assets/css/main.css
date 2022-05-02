@@ -51,6 +51,7 @@ h3, h4, h5 {
 html, body {
     font-family: "Helvetica Neue", Arial, SansSerif;
     font-size: 16px;
+    background-color: #fff0d6;
 }
 
 .kitchentype
@@ -76,12 +77,12 @@ object-fit: cover;
     }
 
 .login {
-    border: 40px solid white;
+    border: 40px solid #fff0d6;
     background-color: var(--darker-green);
     padding: 40px;
 }
 .agenda{
-    border: 40px solid white;
+    border: 40px solid #fff0d6;
     background-color: var(--darker-red);
     padding: 40px;
 }
@@ -126,4 +127,23 @@ object-fit: cover;
     object-fit: cover;
     max-height: 300px;
     width:auto;
+}
+.star{
+    font-size: 30px;
+    color: #000000;
+    cursor: pointer;
+    width: 50px;
+}
+
+.star:hover{
+    color:#F00;
+}
+
+.red {
+    color: var(--lighter-orange);
+}
+
+.lijstrow{
+    height: auto;
+    min-height: 170px;
 }

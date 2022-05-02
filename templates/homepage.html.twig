@@ -5,7 +5,9 @@
 	<div class="carousel-inner">
 		<img class="d-block w-100 receptimage" alt="Carousel Bootstrap Second" src="https://keukenhulpjes.be/wp-content/uploads/2020/07/Mooi-gedekte-tafel.jpg" height=400px />
 		<div class="carousel-caption" >
+        <a class="link" href="http://localhost/educom-verrukkulluk/index.php">
             <img class="logo" src="assets/img/logo-v2.png"/>
+        </a>
 		</div>
 	</div> 
 {% endblock %}
@@ -23,7 +25,10 @@
         					<textarea name="email" rows="1" cols="30"></textarea>
 							<p> password </p>
 							<textarea name="password" rows="1" cols="30"></textarea>
-							</h3>
+							</h3><br><br>
+							<button type="button" class="btn btn-warning">
+							<h3>Login</h3>
+							</button>                
 						</div>
 					</div>
 					<div class="row">
@@ -49,16 +54,17 @@
                                             <h4>
                                             <a style="text-decoration: none" href="http://localhost/educom-verrukkulluk/index.php?recept_id={{record.recept.id}}&action=detail"><div class="link">{{record.recept.titel}}</div></a>
                                             </h4>
+                                            <h5> {{record.gemRating}} </h5>
                                         <ul>
                                             
                                             {{record.recept.short_desc}}
                                             
                                         <ul class="kitchentype">
                                             <li>
-                                            {{record.keuken.omschrijving}}
+                                            <h5 class="text-warning">{{record.keuken.omschrijving}}</h5>
                                             </li>
                                             <li>
-                                            {{record.type.omschrijving}}
+                                            <h5 class="text-warning">{{record.type.omschrijving}}</h5>
                                             </li>
                                         </ul>
                                         </ul>

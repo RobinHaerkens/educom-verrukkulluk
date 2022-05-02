@@ -63,6 +63,15 @@ switch($action) {
             break;
         }
 
+        case "boodschappen":{
+            $id = $_GET["recept_id"];
+            $data = $boodschappen->selecteerBoodschappen($id)[0];
+             $template = 'boodschappen.html.twig';
+            $title = "boodschappenlijst pagina";
+            break;
+
+        }
+
         /// etc
 
 }

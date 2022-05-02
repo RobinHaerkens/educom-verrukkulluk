@@ -37,5 +37,38 @@
 
     {# <script type="text/javascript" language="javascript" src="assets/bootstrap/js/bootstrap.js"></script> #}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script>
+       $(document).ready(function(){
+           ///code goes here!
+            /// clicking function for stars
+            $(".star").click(function(){
+                   ///variable value takes the data-value of the span that is clicked
+                var value = $(this).attr("data-value");
+                ///each() function loops through all the DOM elements of class star
+               $('.star').each((index, elem) => {
+                    ///removes the red-class from the stars when clicked again
+                    $(elem).removeClass("red");
+                ///sets variable itemValue with the attribute data-value of class elem (in this case star) with the value for each object
+                    var itemValue = $(elem).attr('data-value');
+                   ///checks if the itemValue is smaller than the clicked value and if it is, make the color of the element red (thus all previous stars because it loops through each attribute)
+                   if(itemValue <= value){
+                       $(elem).addClass("red");
+                   }
+               })
+                $.ajax({
+                url: "https://api.dev-master.ninja/js/rating",
+                method: "POST",
+                data: { rating: value },
+                success: function(response) {console.log(response) }
+	            })
+                    
+                console.log(value);
+                $(this).addClass("red");
+                    
+           })
+                
+        });
+		
+    </script>
 
 </body>
