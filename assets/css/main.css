@@ -108,6 +108,22 @@ object-fit: cover;
    color: #222;
    text-decoration: none; 
    background-color: none;
-    }
+}
 
+.profile_image{
+    object-fit: cover;
+    max-height: 60px;
+    width: auto;
+}
 
+.ingredient_image{
+    object-fit: cover;
+    max-height:auto;
+    width: 105px;
+}
+   
+.recept_image_title{
+    object-fit: cover;
+    max-height: 300px;
+    width:auto;
+}

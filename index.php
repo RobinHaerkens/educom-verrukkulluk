@@ -14,7 +14,9 @@ require_once("lib/ingredient.php");
 require_once("lib/recept.php");
 require_once("lib/boodschappenlijst.php");
 
-
+header("Cache-Control: no-cache, no-store, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
 
 /// Twig koppelen:
 $loader = new \Twig\Loader\FilesystemLoader("./templates");
@@ -55,7 +57,8 @@ switch($action) {
         case "detail": {
             $id = $_GET["recept_id"];
             $data = $recept->selecteerRecept($id)[0];
-            $template = 'detail.html.twig';
+             $template = 'detail.html.twig';
+            //$template = 'test.html.twig';
             $title = "detail pagina";
             break;
         }

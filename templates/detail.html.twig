@@ -6,134 +6,148 @@
  
 	<div class="carousel-inner">
 		<img class="d-block w-100 receptimage" alt="Carousel Bootstrap Second" src="{{data.recept.foto}}" height=400px />
-		<div class="carousel-caption" position="left">
+		<div class="carousel-caption" position="left"></div>
+				<div class="carousel-caption" >
+            <img class="logo" src="assets/img/logo-v2.png"/>
 		</div>
-
 	</div> 
-	<div><h1>{{data.recept.titel}}</h1></div>
-	<div>{{data.keuken.omschrijving}}</div>
-	<div>{{data.type.omschrijving}}</div>
-	<div>{{data.totaalcalorien}} Kcal</div>
-	<div>Totaal kosten: {{data.prijs}} euro</div>
-	<div>Rating {{data.gemRating}}</div>
-	<div> {{data.recept.long_desc}}</div>
-{#Bereiding#}
-<h2 class="text-danger"> Bereiding </h2>
-	{% for record in data.bereiding %}
-	<ul>
-	{{record.nummeriekveld}}<br>
-	{{record.textveld}}<br>
+{% endblock %}
 
-	</ul>
-	{% endfor %}
+{% block main %}
 
-
-{#ingredienten#}
-<h2 class="text-danger"> Lijst met Ingrediënten </h2>
-	{% for record in data.ingredienten %}
-	<li>
-	{{record.artikel_data.naam}} {{record.ingredient_data.hoeveelheid}}{{record.ingredient_data.eenheid}}
-	</il>
-	{% endfor %}
-{#opmerkingen ophalen en usernaam#}
-
-<h2 class="text-danger"> Opmerkingen </h2>
-	{% for record in data.opmerkingen %}
-	<ul>
-	{{record.user_info.user_name}}<br>
-	<img height=75px width=auto  src="{{record.user_info.foto}}"><br>
-	{{record.recept_user_info.textveld}}<br>
-	{{record.recept_user_info.datum}}
-	</ul>
-	{% endfor %}
-
-<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="tabbable" id="tabs-359263">
-				<ul class="nav nav-tabs">
-					<li class="nav-item">
-						<a class="nav-link active show" href="#tab1" data-toggle="tab"><h3 class="text-danger"> Ingrediënten</h3></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#tab2" data-toggle="tab"><h3 class="text-danger"> Bereidingswijze</h3></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#tab3" data-toggle="tab"><h3 class="text-danger"> Opmerkingen </h3></a>
-					</li>
-				</ul>
-				<div class="tab-content">
-					<div class="tab-pane" id="tab1">
-						<p>
-							{% for record in data.ingredienten %}
-							<li>
-							{{record.artikel_data.naam}} {{record.ingredient_data.hoeveelheid}}{{record.ingredient_data.eenheid}}
-							</il>
-							{% endfor %}
-						</p>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-12 login">
+									<h3>
+									<h3 class="text-warning"> Login </h3>
+									<p> email</p>
+									<textarea name="email" rows="1" cols="30"></textarea>
+									<p> password </p>
+									<textarea name="password" rows="1" cols="30"></textarea>
+									</h3><br><br>
+									<button type="button" class="btn btn-warning">
+									<h3>Login</h3>
+									</button>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 agenda">
+									<h2 class = "text-warning">Agenda</h2>
+									<i class="fa fa-calendar"></i> FontAwesome <br>
+									<i class="fa fa-calendar"></i><a class="link" href="https://fontawesome.com/icons?d=gallery&m=free"> Documentation</a><br>
+									<i class="fa fa-calendar"></i> Event 1 <br>
+									<i class="fa fa-calendar"></i> Event 2 <br>
+									<i class="fa fa-file-pdf"></i><a class="link" href="https://www.layoutit.com/build"> Layout-it</a>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="tab-pane" id="tab2">
-						<p>
-								{% for record in data.bereiding %}
-								<ul>
-								{{record.nummeriekveld}}<br>
-								{{record.textveld}}<br>
+				</div>
+				<div class="col-md-8">
+					<div class="row">
+						<div class="col-md-12">
+						<div><h1>{{data.recept.titel}}</h1></div>
+							<div class="row">
+								<div class="col-md-4">
+									<img class="recept_image_title" src="{{data.recept.foto}}">
+								</div>
+								<div class="col-md-8">
+									<div class="row">
+										<div class="col-md-8">
+										<div> {{data.recept.long_desc}}</div>
+										</div>
+										<div class="col-md-4">
+											<h5><div>{{data.keuken.omschrijving}}</div>
+											<div>{{data.type.omschrijving}}</div>
+											<div>{{data.totaalcalorien}} Kcal</div>
+											<div>Totaal kosten: {{data.prijs}} euro</div>
+											<div>Rating {{data.gemRating}}</div></h5>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-9">
+											
+										</div>
+										<div class="col-md-3">
+											
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
 
-								</ul>
-								{% endfor %}
-						</p>
-					</div>
-					<div class="tab-pane" id="tab3">
-						<p>
-							{% for record in data.opmerkingen %}
-							<ul>
-							{{record.user_info.user_name}}<br>
-							<img height=75px width=auto  src="{{record.user_info.foto}}"><br>
-							{{record.recept_user_info.textveld}}<br>
-							{{record.recept_user_info.datum}}
-							</ul>
-							{% endfor %}
-						</p>
+
+										<nav>
+										<div class="nav nav-tabs" id="nav-tab" role="tablist">
+											<a class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><h3 class="text-danger"> Ingrediënten</h3></a>
+											<a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><h3 class="text-danger"> Bereidingswijze</h3></a>
+											<a class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><h3 class="text-danger"> Opmerkingen </h3></a>
+										</div>
+										</nav>
+										<div class="tab-content" id="nav-tabContent">
+										<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+												<p>
+												<ul>
+												{% for record in data.ingredienten %}
+												<ul>	
+													<img class="ingredient_image" src="{{record.artikel_data.foto}}"> {{record.artikel_data.naam}} {{record.ingredient_data.hoeveelheid}}{{record.ingredient_data.eenheid}}
+												</ul><br>		
+												{% endfor %}
+												</ul>
+												</p>												
+										</div>
+										<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+												<p>
+												<ul>
+													{% for record in data.bereiding %}
+													<ul>
+													{{record.nummeriekveld}}<br>
+													{{record.textveld}}<br>
+													</ul>
+													{% endfor %}
+													</ul>
+												</p>
+										</div>
+										<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+												<p>
+												<ul>
+													{% for record in data.opmerkingen %}
+														<ul>
+															
+															<img class="profile_image" src="{{record.user_info.foto}}"> {{record.user_info.user_name}}<br>
+															<div>{{record.recept_user_info.textveld}}</div><br>
+															{{record.recept_user_info.datum}}
+														</ul><br>
+													{% endfor %}
+													</ul>
+												</p>
+										</div>
+										</div>
+											
+
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages" type="button" role="tab" aria-controls="messages" aria-selected="false">Messages</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">Settings</button>
-  </li>
-</ul>
-
-<div class="tab-content">
-  <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">.1..</div>
-  <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">..2.</div>
-  <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">..3.</div>
-  <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">..4.</div>
-</div>
-
-<script>
-  var firstTabEl = document.querySelector('#myTab li:last-child a')
-  var firstTab = new bootstrap.Tab(firstTabEl)
-
-  firstTab.show()
-</script>
 
 
 {% endblock %}
-
 {% block footer %}
+<div class="row">
+    <div class="col-md-6">
 		<h3>
 			Contact
 		</h3>
@@ -142,4 +156,10 @@
 		Adres: Poststraat 2b<br>
 		Sittard<br>
 		Verrukkulluk.nl</p>
+    </div>
+
+    <div class="col-md-6">
+            <img class="logo" src="assets/img/logo-v2.png"/>
+	</div>
+</div>
 {% endblock %}
