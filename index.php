@@ -65,7 +65,7 @@ switch($action) {
 
         case "boodschappen":{
             $id = $_GET["recept_id"];
-            $data = $boodschappen->selecteerBoodschappen($id)[0]; 
+            $data = $boodschappen->selecteerBoodschappen($id); 
             $template = 'boodschappen.html.twig';
             $title = "boodschappenlijst pagina";
             break;
@@ -74,7 +74,15 @@ switch($action) {
 
         /// etc
 
+
 }
+
+
+
+
+
+ 
+
 
 
 /// Onderstaande code schrijf je idealiter in een layout klasse of iets dergelijks

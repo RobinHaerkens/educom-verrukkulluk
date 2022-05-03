@@ -52,7 +52,7 @@ class boodschappen {
         $i++;
         }
         
-        $boodschappen[] =[ "ingredient_namen" => $ingredient_naam];
+        $boodschappen =[ "ingredient_namen" => $ingredient_naam];
         return($boodschappen);
  
 
