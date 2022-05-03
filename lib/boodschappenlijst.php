@@ -45,9 +45,14 @@ class boodschappen {
 
             
         }
-        $boodschappen[] = ["ingredient_namen" => $ingredient_naam, 
-                           "hoeveelheid_boodschappen" => $boodschappen_lijst];
-
+        
+        $i=0;
+        foreach($ingredient_naam as $value){
+        $ingredient_naam[$i]["boodschappen_hoeveelheid"] = $boodschappen_lijst[$i];
+        $i++;
+        }
+        
+        $boodschappen[] =[ "ingredient_namen" => $ingredient_naam];
         return($boodschappen);
  
 

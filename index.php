@@ -57,7 +57,7 @@ switch($action) {
         case "detail": {
             $id = $_GET["recept_id"];
             $data = $recept->selecteerRecept($id)[0];
-             $template = 'detail.html.twig';
+            $template = 'detail.html.twig';
             //$template = 'test.html.twig';
             $title = "detail pagina";
             break;
@@ -65,8 +65,8 @@ switch($action) {
 
         case "boodschappen":{
             $id = $_GET["recept_id"];
-            $data = $boodschappen->selecteerBoodschappen($id)[0];
-             $template = 'boodschappen.html.twig';
+            $data = $boodschappen->selecteerBoodschappen($id)[0]; 
+            $template = 'boodschappen.html.twig';
             $title = "boodschappenlijst pagina";
             break;
 

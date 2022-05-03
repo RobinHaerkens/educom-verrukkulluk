@@ -63,9 +63,9 @@
 
                             <div class="col-md-3">
                             <h3 class="text-warning">Hoeveelheid</h3>
-                                {% for record in data.hoeveelheid_boodschappen %}
+                                {% for record in data.ingredient_namen %}
                                 <div class="lijstrow">
-                                    <ul>{{record}}</ul>
+                                    <ul>{{record.boodschappen_hoeveelheid }}</ul>
                                 </div>    
                                 {% endfor %}
                             </div>
@@ -86,13 +86,12 @@
                             <div class="col-md-5">
                                 {% set totalPrice = 0 %}
                                 {% for record in data.ingredient_namen %}
-                                {% set totalPrice = totalPrice + (record.prijs) %}
+                                {% set totalPrice = totalPrice + (record.prijs * record.boodschappen_hoeveelheid) %}
                                 {% endfor %}
-                                <h1 class="text-danger">€ {{totalPrice/100}}</h1>
-                                <h1 class="text-danger">€ {{data_1.prijs}}</h1>
+                                <h1 class="text-danger">€ {{ (totalPrice / 100)|round(2)}}</h1>
+                                
                             </div>
                         </div>
-
 					</div>                      
 				</div>
 			</div>
