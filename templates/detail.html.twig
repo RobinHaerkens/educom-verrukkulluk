@@ -173,7 +173,7 @@
                 })
 				//send the data value of the stars index.php everytime a star is clicked	
                 $.ajax({
-                url: "http://localhost/educom-verrukkulluk/index.php",
+                url: "http://localhost/educom-verrukkulluk/index.php?recept_id={{data.recept.id}}&action=detail",
                 method: "POST",
                 data: { rating: value },
                 success: function(data) {
