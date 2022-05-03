@@ -16,6 +16,8 @@ class receptinfo {
 
         return($user_data);
     }
+
+    
     public function selecteerReceptinfo($recept_id, $record_type) {
 
         $sql = "select * from receptinfo where recept_id= $recept_id and record_type = '$record_type'";
