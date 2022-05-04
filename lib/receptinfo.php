@@ -17,6 +17,16 @@ class receptinfo {
         return($user_data);
     }
 
+    public function ratingOpsturen($recept_id, $value){
+
+        $sql = "INSERT INTO receptinfo (recept_id, record_type, nummeriekveld)
+                VALUES ('$recept_id', 'R', '$value')";
+
+        $result = mysqli_query($this->connection, $sql); 
+        return(["recept_id" => $recept_id, "value" => $value]);
+
+    }
+
     
     public function selecteerReceptinfo($recept_id, $record_type) {
 

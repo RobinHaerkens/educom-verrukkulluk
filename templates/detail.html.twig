@@ -69,7 +69,6 @@
 											<div>{{data.totaalcalorien}} Kcal</div>
 											<div>Totaal kosten: {{data.prijs}} euro</div>
 											<div>Rating {{data.gemRating}}</div></h5>
-											<h5><div>Rating <p id="rating"></p></div></h5>
 											<div>
 												<span class="star" data-value="1">*</span>
 												<span class="star" data-value="2">*</span>
@@ -155,61 +154,30 @@
 	</div>
     <script>
        $(document).ready(function(){
-           ///code goes here!
-            /// clicking function for stars
+            
             $(".star").click(function(){
-                   ///variable value takes the data-value of the span that is clicked
                 var value = $(this).attr("data-value");
-                ///each() function loops through all the DOM elements of class star
                $('.star').each((index, elem) => {
-                    ///removes the red-class from the stars when clicked again
-                    $(elem).removeClass("red");
-                ///sets variable itemValue with the attribute data-value of class elem (in this case star) with the value for each object
+                    $(elem).removeClass("red");             
                     var itemValue = $(elem).attr('data-value');
-                   ///checks if the itemValue is smaller than the clicked value and if it is, make the color of the element red (thus all previous stars because it loops through each attribute)
+
                    if(itemValue <= value){
                        $(elem).addClass("red");
                    }
                 })
-				//send the data value of the stars index.php everytime a star is clicked	
+				
                 $.ajax({
-                url: "http://localhost/educom-verrukkulluk/index.php?recept_id={{data.recept.id}}&action=detail",
+                url: "http://localhost/educom-verrukkulluk/index.php?recept_id={{data.recept.id}}&action=waardering",
                 method: "POST",
                 data: { rating: value },
-                success: function(data) {
-						$("#rating").val(data.rating);}
+                success: function(response){} 
 	            })
-				})
-				//create empty object to store Ratings 
-                var Ratings = [];
-
-                //push rating values into an array everytime a star is clicked
-				$('.star').on('click', function(e){
-    			e.preventDefault();    
-    			Ratings.push( $(this).data('value') );
-    			console.log(Ratings); 
-
-				
-				//calculate the average of the ratings
-				const average = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
-				console.log(average(Ratings));	
-				document.getElementById("rating").innerHTML = (average(Ratings)).toFixed(2)
-
-				//log last clicked value for storage in SQL database
-				arg = JSON.stringify($(this).data('value'))
-				console.log(arg);
-
-				});			
+			})
+			
 			});
     </script>
 	
 	
-{#$sql = "INSERT INTO receptinfo (recept_id, record_type, nummeriekveld)
-VALUES ('$id', 'R', 'arg')";
-$db->getConnection()->query($sql); 
-private function schrijven in recept info class, action = waardering
-stap 1 = toevoegen
-stap2 = ophalengem.#}
 {% endblock %}
 {% block footer %}
 <div class="row">

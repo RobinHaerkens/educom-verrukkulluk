@@ -34,7 +34,7 @@ $db = new database();
 $recept = new recept($db->getConnection());
 $ingredient = new ingredient($db->getConnection());
 $boodschappen = new boodschappen($db->getConnection());
-
+$waardering = new receptinfo($db->getConnection());
 
 /*
 URL:
@@ -72,6 +72,17 @@ switch($action) {
 
         }
 
+        case "waardering":{
+
+            header('Content-Type: application/json; charset=utf-8');
+            $id = $_GET["recept_id"];
+            $value =$_POST["rating"];
+            $data = $waardering->ratingOpsturen($id, $value);
+            echo json_encode($data);
+            
+            die();
+
+        }
         /// etc
 
 
