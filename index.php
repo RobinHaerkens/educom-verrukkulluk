@@ -83,6 +83,15 @@ switch($action) {
             die();
 
         }
+
+        case "search": {
+
+            $key = $_POST["keyword"];
+            $data = $recept->zoekRecept($key);
+            $template = 'homepage.html.twig';
+            $title = "home pagina";
+            break;
+        }
         /// etc
 
 

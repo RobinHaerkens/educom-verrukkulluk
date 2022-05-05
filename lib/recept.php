@@ -100,6 +100,25 @@ class recept {
         return($total);
     }
 
+    public function zoekRecept($key){
+
+            $keyword = strtoupper(preg_replace('/[0-9]+/', '', $key));
+            $recepten = $this->selecteerRecept();
+            $zoekresultaat =[];
+
+            foreach($recepten as $recept){
+
+                $recept_text = strtoupper(json_encode($recept));
+                if(strpos($recept_text, $keyword) !== FALSE ){
+                    $zoekresultaat[] = $recept;
+                }          
+            }
+
+            return($zoekresultaat);
+        
+    }
+
+
     public function selecteerRecept($id = null) {
 
         $extrasql = is_null($id) ? "" : " where id = $id";
@@ -139,8 +158,6 @@ class recept {
                 "gemRating" => $gemRating,
                 "prijs" => $prijs
             ];
-
-            //$recept[] = array_merge($row, array($keuken_data, $type_data),$user_data,$ingredient_data, $rating_data, $favorieten_data, $bereiding_data, $opmerkingen_data, array($som_calorien), array($gemRating), array($prijs));
 
         }
 
