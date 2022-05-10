@@ -88,7 +88,7 @@ object-fit: cover;
 }
 .block {
     padding: 4px;
-    border: 1px solid #DDD;
+    border: 2px solid #DDD;
 }
 .block:hover {
     border: 5px solid transparent;
