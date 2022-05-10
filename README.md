@@ -1,74 +1,40 @@
-<img src="./assets/img/logo-v2.png" alt="Logo">
+<img src="assets/github/header-logo.png"/>
 
-# Verrukkuluk 
-Gegeven is een recepten website die door een grote supermarktketen als extra service- en verkoopkanaal wordt ingezet. Alle artikelen die in de recepten gebruikt worden, zijn in de filialen van de supermarkt te verkrijgen.
+# Verrukkulluk, Recepten Site
 
-> lees de opdracht beschrijving op https://e-learning.educom.nu/cases/verrukkulluk/intro
+ Verrukkulluk is een website waar je recepten kunt vinden met de benodigde ingrediënten, en waar je met deze ingrediënten een boodschappen lijst kunt samen stellen, er is een rating systeem dat de waardering per ingrediënt aangeeft en je kunt er opmerkingen lezen van andere
 
-## Opdracht
-Vervaardig een gegevensmodel op basis van bovenstaande informatie en scherm-mockups in twee fases: 
-1. Fase 1: De back-end
-2. Fase 2: De front-end
+<img src="assets/github/educom-site.png"/>
 
-> Hanteer de planning in je project-overzicht
+## Technologieën
 
-## Fase 1 - De Back-end
-In deze fase programeer je alles wat met het ophalen van de gerechten te maken
-heeft, ook het maken en het bijwerken van de boodschappenlijst en de favorieten ga je nu vervaardigen.
+de front-end van Verrukkulluk is gemaakt in de PHP template engine Twig middels HTML en CSS, de data wordt opgehaald uit een SQL database middels PHP en  de webstie heeft functionaliteiten die gebruik maken van javascript.
+
+* PHP 
+* JavaScript
+* HTML
+* CSS
+* MySQL
+* Restful API (POST/GET/PUT/DELETE)
+* Design Patterns (MVC, Observer, Dependency Injection)
+* Apache / IIS (etc)
+* Applicatie Servers
+
+Ik heb een ASD en ERD gebruikt om het programmeren van de back-end makkelijker te maken.
 
 
-## Fase 2 - De front-end
+## Methoden & Technieken
 
-De startup-code van **Fase 2** vind je in de <a href='./fase-2/'>Fase 2 directory</a>
-Kopieer de `index.php` naar de root van je project en pas hem aan zodat je eigen classes aangeroepen worden.
+### Entity Relationship Diagram
+Dit diagram toont alle tabellen en de interacties hiertussen voor de database van Verrukkulluk
+<img src="assets/github/erd.png" />
 
-Aangezien er in de moderne tijd nog zelden zonder framework gewerkt wordt - 
-zowel voor frontend development of backend ontwikkeling - gaan we in deze case 
-ook alvast aan de slag met een zogenaamde [template engine](https://en.wikipedia.org/wiki/Template_processor). 
-Dit is een stukje code dat ontwikkeld is om het leven van een developer wat 
-aangenamer te maken. 
+### Application Structure Diagram / Functionele Decompositie
+Bijvoorbeeld: "Dit diagram toont het proces voor het aanmaken van een gebruiker."
+<img src="assets/github/asd.png" />
 
-Open je command line interface. in windows start je deze door: 
 
-`Start -> Uivoeren -> cmd`
+## Meer informatie
 
-Mogelijk dat je je zogenaamde [PATH moet instellen](https://www.computerhope.com/issues/ch000549.htm).
-We gaan hier nu niet uitleggen wat dat precies betekent, 
-in dit geval is [Google](https://www.google.com/search?ei=mKaiXovxO8eykwXxjJDYDQ&q=what+is+the+path+in+dos+or+windows+10&oq=what+is+the+PATH+in+dos+or+windo&gs_lcp=CgZwc3ktYWIQAxgBMggIIRAWEB0QHjIICCEQFhAdEB4yCAghEBYQHRAeMggIIRAWEB0QHjIICCEQFhAdEB4yCAghEBYQHRAeMggIIRAWEB0QHjoECAAQRzoECAAQQzoCCAA6BQgAEJECOgYIABAWEB5QwBZYq2JgoWtoA3AGeACAAWeIAZMSkgEEMzQuMZgBAKABAaoBB2d3cy13aXo&sclient=psy-ab) your friend.
-
-### Twig
-De template engine die we nu gaan gebruiken is [twig](https://twig.symfony.com). 
-Deze gaan we in het Symfony  project (Symfony) ook inzetten.
-Er zijn nog wel een aantal, zoals bijvoorbeeld [Smarty](https://www.smarty.net/) 
-maar die werkt in grote lijnen hetzelfde.  
-
-Je kunt twig nu via composer toevoegen aan de je project. 
-Open hier toe een command prompt en type de volgende commando's:
-
-### Windows
-```shell
-cd \directory\van\project [ENTER\
-```
-
-### Mac / Linux
-```shell
-cd directory/van/project [ENTER]
-```
-
-**NB:** `directory/van/project` moet je uiteraard vervangen door de **ECHTE** naam(en) van
-de directory's van je project...
-
-Installeer nu vanuit deze directory (de "root" van je project) twig met composer: 
-
-```shell
-composer require twig/twig
-```
-
-Eventueel:
-```shell
-php composer require twig/twig
-```
-
-### Project
-Dit "skeleton" project is een eenvoudige instructie hoe je met twig kunt werken. 
-Kijk voor meer informatie en uitgebreide documentatie op de [twig site](https://twig.symfony.com)
+Adobe XD Prototype: https://xd.adobe.com/view/d364d780-09f9-4671-80bc-0e0973e7e112-8637/
+Design System op ZeroHeight: https://zeroheight.com/471a18241/p/992c96-educom
