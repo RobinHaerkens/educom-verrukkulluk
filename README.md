@@ -4,7 +4,7 @@
 
  Verrukkulluk is een website waar je recepten kunt vinden met de benodigde ingrediënten, en waar je met deze ingrediënten een boodschappen lijst kunt samen stellen, er is een rating systeem dat de waardering per ingrediënt aangeeft en je kunt er opmerkingen lezen van andere mensen.
 
-<img src="assets/github/educom-site.png"/>
+<img src="assets/github/verrukkulluk-site.png"/>
 
 ## Technologieën
 
